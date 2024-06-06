@@ -1,0 +1,86 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h1 Livro id: #{livro._id}
+
+        .w3-container
+            ul.w3-ul.w3-card-4(style="width:50%")
+                li
+                    b Title: 
+                    span= livro.title
+                li
+                    b Series: 
+                    span= livro.series
+                li
+                    b Author: 
+                    span= livro.author
+                li
+                    b Rating: 
+                    span= livro.rating
+                li
+                    b Description: 
+                    span= livro.description
+                li
+                    b Language: 
+                    span= livro.language
+                li
+                    b ISBN: 
+                    span= livro.isbn
+                li
+                    b Genres 
+                    span= livro.genres
+                li
+                    b Characters: 
+                    span= livro.characters
+                li
+                    b BookFormat: 
+                    span= livro.bookFormat
+                li
+                    b Edition: 
+                    span= livro.edition
+                li
+                    b Pages: 
+                    span= livro.pages
+                li
+                    b Publisher: 
+                    span= livro.publisher
+                li
+                    b PublishDate: 
+                    span= livro.publishDate
+                li
+                    b FirstPublishDate: 
+                    span= livro.firstPublishDate
+                li
+                    b Awards: 
+                    span= livro.awards
+                li
+                    b NumRatings: 
+                    span= livro.numRatings
+                li
+                    b RatingsByStars: 
+                    span= livro.ratingsByStars
+                li
+                    b LikedPercent: 
+                    span= livro.likedPercent
+                li
+                    b Setting: 
+                    span= livro.setting
+                if livro.coverImg && livro.coverImg.trim() !== ''
+                    li
+                        b CoverImg: 
+                        img(src=livro.coverImg, alt='Cover Image')
+                li
+                    b BbeScore: 
+                    span= livro.bbeScore
+                li
+                    b BbeVotes: 
+                    span= livro.bbeVotes
+                li
+                    b Price: 
+                    span= livro.price
+                
+    .w3-cell.w3-container.w3-margin-bottom
+        a.w3-button.w3-teal(href="/")
+            b Back to Book List

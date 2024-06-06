@@ -1,0 +1,38 @@
+
+version: '3.8'
+
+services:
+
+  app:
+    container_name: app
+    build: ./ex2
+    ports:
+      - "17001:17001"
+    depends_on:
+      - api
+    links:
+      - api
+
+  api:
+    container_name: api
+    build: ./ex1
+    ports:
+      - "17000:17000"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  mongodb:
+    container_name: mongo-db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    depends_on:
+      - mongo-init
+
+  mongo-init:
+    image: mongo:latest
+    volumes:
+      - ./dataset.json:/datasets/dataset.json
+    command: mongoimport --host mongodb -d livros -c livros --type json --file /datasets/dataset.json --jsonArray
