@@ -19,7 +19,7 @@ def correct_list_fields(data):
 
 # Tenta ler o conteúdo do ficheiro dataset.json
 try:
-    with open('dataset.json', 'r', encoding='utf-8') as file:
+    with open('datasetInicial.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
 except json.JSONDecodeError as e:
     print(f"Erro ao decodificar JSON: {e}")
